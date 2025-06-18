@@ -6,3 +6,7 @@ as $$
 $$;
 
 
+---
+generate 4 description and requirements for the following jobs
+ai engineer,backend developer,cloud engineer, database administrator fot the following companies
+google,amazon,uber,meta accordingly

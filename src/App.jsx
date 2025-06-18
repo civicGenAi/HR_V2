@@ -4,12 +4,12 @@ import AppLayout from "./layout/app-layou";
 import LandingPage from "./pages/LandingPage";
 import Onboarding from "./pages/Onboarding";
 import JobListing from "./pages/Job-listing";
-import Job from "./pages/Job";
 import PostJobs from "./pages/PostJobs";
 import SavedJobs from "./pages/SavedJobs";
 import MyJobs from "./pages/MyJobs";
 import { ThemeProvider } from "./components/themes.provider";
 import ProtectedRoute from "./components/ProtectedRoute";
+import JobPage from "./pages/JobPage";
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
@@ -35,10 +35,10 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/job:id",
+        path: "/job/:id",
         element: (
           <ProtectedRoute>
-            <Job />
+            <JobPage />
           </ProtectedRoute>
         ),
       },

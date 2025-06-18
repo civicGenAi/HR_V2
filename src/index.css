@@ -125,3 +125,11 @@
     @apply bg-background text-foreground;
   }
 }
+
+
+.wmde-markdown ul {
+  list-style-type: disc !important;
+  padding-left: 25px !important;
+  color: white !important;
+}
+

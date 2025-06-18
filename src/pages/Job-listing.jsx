@@ -34,7 +34,7 @@ function JobListing() {
     searchQuery,
   });
 
-  const { fn: fnCompanies, data: companies } = useFetch(getCompanies);
+  const { fn: fnCompanies, data: companies = [] } = useFetch(getCompanies);
 
   useEffect(() => {
     if (isLoaded) fnCompanies();
@@ -59,7 +59,7 @@ function JobListing() {
     setLocation("");
   };
 
-  if (!isLoaded) {
+  if (!isLoaded || loadingJobs) {
     return <BarLoader className='mb-4' width={"100%"} color='#23312EFF' />;
   }
 
