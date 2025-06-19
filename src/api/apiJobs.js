@@ -70,7 +70,21 @@ export async function addNewJob(token, _, jobData) {
     .select();
 
   if (error) {
-    console.log("Error while creating job job:", error);
+    console.log("Error while creating job :", error);
+    return null;
+  }
+  return data;
+}
+
+export async function getSavedJobs(token) {
+  const supabase = await suparbaseClient(token);
+
+  const { data, error } = await supabase
+    .from("saved_jobs")
+    .select("*, job:jobs(*, company:companies(name, logo_url))");
+
+  if (error) {
+    console.log("Error while Fetching saved Jobs:", error);
     return null;
   }
   return data;
