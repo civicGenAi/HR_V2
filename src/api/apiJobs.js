@@ -89,3 +89,35 @@ export async function getSavedJobs(token) {
   }
   return data;
 }
+
+
+export async function getMyJobs(token, { recruiter_id }) {
+  const supabase = await suparbaseClient(token);
+
+  const { data, error } = await supabase
+    .from("jobs")
+    .select("*, company:companies(name, logo_url)")
+    .eq("recruiter_id", recruiter_id);
+
+  if (error) {
+    console.log("Error while Fetching jobs:", error);
+    return null;
+  }
+  return data;
+}
+
+export async function deleteJobs(token, { job_id }) {
+  const supabase = await suparbaseClient(token);
+
+  const { data, error } = await supabase
+    .from("jobs")
+    .delete()
+    .eq("id", job_id)
+    .select();
+
+  if (error) {
+    console.log("Error while Deleting jobs:", error);
+    return null;
+  }
+  return data;
+}
