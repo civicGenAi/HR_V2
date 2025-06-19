@@ -1,4 +1,4 @@
-import suparbaseClient from "../../utils/supabase";
+import suparbaseClient, { supabaseUrl } from "../../utils/supabase";
 
 export async function getCompanies(token) {
   const supabase = await suparbaseClient(token);
@@ -11,8 +11,6 @@ export async function getCompanies(token) {
   }
   return data;
 }
-
-
 
 export async function getSingleJob(token, { job_id }) {
   const supabase = await suparbaseClient(token);
@@ -45,4 +43,37 @@ export async function updateHringStatus(token, { job_id }, isOpen) {
   }
   return data;
 }
-  
+
+export async function addNewCompany(token, _, companyData) {
+  const supabase = await suparbaseClient(token);
+
+  const random = Math.floor(Math.random() * 10000);
+  const fileName = `logo-${random}-${companyData.name}`;
+
+  const { error: storageError } = await supabase.storage
+    .from("company-logo")
+    .upload(fileName, companyData.logo);
+
+  if (storageError) {
+    console.log("Error while uploading company logo:", storageError);
+    return null;
+  }
+
+  const logo_url = `${supabaseUrl}/storage/v1/object/public/company-logo/${fileName}`;
+
+  const { data, error } = await supabase
+    .from("companies")
+    .insert([
+      {
+        name: companyData.name,
+        logo_url,
+      },
+    ])
+    .select();
+
+  if (error) {
+    console.log("Error while submitting the compaies :", error);
+    return null;
+  }
+  return data;
+}
