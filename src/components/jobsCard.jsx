@@ -84,7 +84,7 @@ function JobCard({
       </CardContent>
       <CardFooter className='flex gap-2'>
         <Link to={`/job/${job.id}`} className='flex-1'>
-          <Button className='w-full' variant='secondary'>
+          <Button className='w-full' variant='default'>
             More Details
           </Button>
         </Link>

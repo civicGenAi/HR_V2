@@ -77,7 +77,7 @@ function ApplyJobDrawer({ user, jobs, applied = false, fetchJob }) {
       <DrawerTrigger asChild>
         <Button
           size='lg'
-          variant={jobs?.isOpen && !applied ? "blue" : "destructive"}
+          variant={jobs?.isOpen && !applied ? "default" : "destructive"}
           disabled={!jobs?.isOpen || applied}>
           {jobs?.isOpen ? (applied ? "Applied" : "Apply") : "Hiring Closed"}
         </Button>
@@ -157,7 +157,7 @@ function ApplyJobDrawer({ user, jobs, applied = false, fetchJob }) {
 
           {loadingApply && <BarLoader width={"100%"} color='#36d7b7' />}
 
-          <Button type='submit' variant='blue' size='lg'>
+          <Button type='submit' variant='default' size='lg'>
             Apply
           </Button>
         </form>

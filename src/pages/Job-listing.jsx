@@ -65,7 +65,7 @@ function JobListing() {
 
   return (
     <div>
-      <h1 className='gradient-title font-extrabold text-6xl sm:text-7xl text-center pb-8'>
+      <h1 className='font-extrabold text-6xl sm:text-7xl text-center pb-8'>
         Latest Jobs
       </h1>
 
@@ -79,7 +79,7 @@ function JobListing() {
           name='search-query'
           className='h-full flex px-4 pt-2 text-shadow-md'
         />
-        <Button type='submit' className='h-full sm:w-28' variant='blue'>
+        <Button type='submit' className='h-full sm:w-28' variant='default'>
           search
         </Button>
       </form>
@@ -121,10 +121,7 @@ function JobListing() {
           </SelectContent>
         </Select>
 
-        <Button
-          onClick={clearFilters}
-          variant='destructive'
-          className='sm:w-1/2'>
+        <Button onClick={clearFilters} className='sm:w-1/2 bg-[#157347] '>
           Clear Filters
         </Button>
       </div>

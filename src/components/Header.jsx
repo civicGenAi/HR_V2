@@ -39,7 +39,7 @@ function Header() {
 
         <div className='flex gap-8'>
           <SignedOut>
-            <Button variant='outline' onClick={() => setShowSignIn(true)}>
+            <Button variant='default' onClick={() => setShowSignIn(true)}>
               Login
             </Button>
           </SignedOut>

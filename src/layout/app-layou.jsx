@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 function AppLayout() {
   return (
     <div>
-      <div className='grid-background'></div>
+      {/* <div className='grid-background'></div> */}
 
       <Header />
 

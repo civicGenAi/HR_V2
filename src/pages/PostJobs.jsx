@@ -88,7 +88,7 @@ function PostJobs() {
 
   return (
     <div>
-      <h1 className='gradient-title font-extrabold text-5xl sm:text-7xl text-center pb-8 '>
+      <h1 className='font-extrabold text-5xl sm:text-7xl text-center pb-8 '>
         Post a Job
       </h1>
 
@@ -179,7 +179,7 @@ function PostJobs() {
         )}
 
         {loadingCreateJob && <BarLoader width={"100%"} color='#36d7b7' />}
-        <Button type='submit' variant='blue' size='lg' className='mt-2'>
+        <Button type='submit' variant='default' size='lg' className='mt-2'>
           Submit
         </Button>
       </form>

@@ -59,7 +59,7 @@ function JobPage() {
   return (
     <div className='flex flex-col gap-8 mt-5'>
       <div className='flex flex-col-reverse gap-6 md:flex-row justify-between items-center'>
-        <h1 className='gradient-title font-extrabold pb-3 text-4xl sm:text-6xl'>
+        <h1 className='font-extrabold pb-3 text-4xl sm:text-6xl'>
           {jobs?.title}
         </h1>
         <img src={jobs?.company?.logo_url} className='h-12' alt={jobs?.title} />
