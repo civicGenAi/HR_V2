@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import React from "react";
 import { Outlet } from "react-router-dom";
@@ -13,9 +14,7 @@ function AppLayout() {
         <Outlet />
       </main>
 
-      <footer className='p-10 text-center bg-gray-800 text-white mt-10'>
-        Career Digital Platform
-      </footer>
+      <Footer />
     </div>
   );
 }

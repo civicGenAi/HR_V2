@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   Carousel,
@@ -16,8 +16,17 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import PlatformFeatures from "@/components/Features";
+import { Sparkles } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 function LandingPage() {
+  const [open, setOpen] = useState(false);
   return (
     <main className='flex flex-col gap-10 sm:gap-20 py-10 sm:py20'>
       <section className='text-center '>
@@ -82,7 +91,9 @@ function LandingPage() {
           </CardContent>
         </Card>
       </section>
-      <Accordion type='single' collapsible>
+
+      <PlatformFeatures />
+      {/* <Accordion type='single' collapsible>
         {faqs.map((faq, index) => {
           return (
             <AccordionItem key={index} value={`item-${index + 1}`}>
@@ -91,7 +102,29 @@ function LandingPage() {
             </AccordionItem>
           );
         })}
-      </Accordion>
+      </Accordion> */}
+
+      {/* Floating Sparkles Button */}
+      <Button
+        className='fixed bottom-6 right-6 z-50 rounded-full p-6 bg-[#FE047F]  text-white shadow-xl'
+        size='icon'
+        variant='default'
+        onClick={() => setOpen(true)}>
+        <Sparkles className='h-6 w-6' />
+      </Button>
+
+      {/* Dialog Popup */}
+      <Dialog open={open} onOpenChange={setOpen}>
+        <DialogContent className='sm:max-w-md'>
+          <DialogHeader>
+            <DialogTitle>CareerHR Assistant</DialogTitle>
+          </DialogHeader>
+          <div className='text-sm text-muted-foreground'>
+            🚀 We're working on something amazing! The AI Assistant is coming
+            soon.
+          </div>
+        </DialogContent>
+      </Dialog>
     </main>
   );
 }
